@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Yuhui Dai and Ting-Che Lin">
+
+    <title>Portfolio Template - Landing Page</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/graphical.png">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" crossorigin="anonymous"></script>
+
+    <link href="../public/css/bootstrap.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <script src="../public/js/matrixRain.js"></script>
+    <link href="../public/css/portfolioTemplate.css" rel="stylesheet">
+    <script src="../public/js/bubble/d3.min.js"></script>
+    <script src="../public/js/bubble/d3transform.js"></script>
+    <script src="../public/js/bubble/extarray.js"></script>
+    <script src="../public/js/bubble/misc.js"></script>
+    <script src="../public/js/bubble/microObserver.js"></script>
+    <script src="../public/js/bubble/plugin.js"></script>
+    <script src="../public/js/bubble/bubble.js"></script>
+    <script src="../public/js/bubble/centralClick.js"></script>
+    <script src="../public/js/bubble/lines.js"></script>
+    <script src="../public/js/bubble/index.js"></script>
+    <style>
+    @media (max-width: 768px) {
+      body {
+        overflow: hidden;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .bubbleChart {
+        height: 540px;
+        margin-top: 7px;
+        font-family:'Source Sans Pro', sans-serif;
+        position: absolute;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bubbleChart {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        margin: 0;
+        padding: 0;
+      }
+    }
+    </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="landingPage.html">
+     <img src="../resources/graphical.png" width="150px" height ="60px" class="d-inline-block align-top" alt="">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="portfolioPage.html" style="color:#fbfafa">Portfolio</a>
+        <a class="nav-item nav-link" href="aboutMePage.html" style="color:#fbfafa">About Me</a>
+        <a class="nav-item nav-link" href="contactPage.html" style="color:#fbfafa">Contact</a>
+
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div id="landingContainer" class="container">
+    <div class='row'>
+      <div class="landingPageIntro col-md-5 col-sm-12">
+        <p class="larger_landing_text">Ting-Che Lin</p>
+        <p class="normal_landing_text">
+          A current senior studies at NYU Abu Dhabi in the United Arab Emirates. I am interested in
+          <a href="portfolioPage.html"><mark id="coding" style="font-size: 1.7rem">coding</mark></a>
+          and
+          <a href="portfolioPage.html"><mark id="data_visualization" style="font-size: 1.7rem">data visualization</mark></a>.</p>
+        <hr class="featurette-divider" id= "landingPageDivider">
+        <footer>
+          <p class="myFooter">© 2017  Ting-Che Lin · Yuhui Dai</p>
+        </footer>
+      </div>
+
+        <div id="myCanvas" class='col-lg-7 col-sm-12' style="visibility:hidden"></div>
+        <div class="bubbleChart col-lg-7 col-sm-12" id="bubbles" style="visibility:hidden"></div>
+
+
+
+    </div>
+
+  </div>
+
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../public/js/resize.js"></script>
+</body>
+
+</html>

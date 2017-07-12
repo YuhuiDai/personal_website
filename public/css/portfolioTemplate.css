@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css?family=Belleza');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,200italic,600italic&subset=latin,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Sniglet');
+
+body {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Belleza;
+
+}
+
+.back_to_top {
+  position: absolute;
+  left: 50%;
+}
+
+.landingPageIntro {
+  padding-left: 7vw;
+  padding-right:5vw;
+  padding-top: 10vh;
+}
+
+.larger_landing_text {
+  font-size: 2.8em;
+}
+.normal_landing_text {
+  font-size: 1.1em;
+  line-height: 1.8em;
+}
+
+#landingPageDivider{
+  margin-top: 4rem;
+  margin-bottom: 0;
+}
+
+mark {
+  color: rgb(222,143,143);
+  background: transparent;
+}
+
+
+
+@media (max-width: 768px) {
+  #myCanvas {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+#bubbles_aboutMe {
+    height: 540px;
+    margin-top: auto;
+    font-family:'Source Sans Pro', sans-serif;
+}
+
+.navbar{
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 0;
+  padding-bottom: 0.7rem;
+  padding-top: 0.7rem;
+}
+
+@media (min-width: 992px) {
+  .navbar-toggleable-md .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+a.navbar-brand{
+  margin-left: 40px;
+  margin-right: 45%;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+}
+a {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+a.nav-item{
+  font-size: 1.2rem;
+}
+
+.navbar-toggle .icon-bar {
+   display: block;
+   width: 30px;
+   height: 5px;
+ }
+
+p {
+  margin-top: 1rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.ContactMe {
+  text-align: center;
+}
+
+.contact_title {
+  font-size: 3em;
+}
+
+.contact_detail {
+  font-size: 2vw;
+}
+
+.container-details {
+   list-style: none;
+   font-size: 1.5em;
+}
+
+.rounded-circle {
+  margin: 0.5rem;
+}
+ .marketing .col-lg-4 {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.marketing h2 {
+  font-weight: normal;
+}
+.marketing .col-lg-4 p {
+  margin-right: .75rem;
+  margin-left: .75rem;
+}
+
+.myFooter {
+  float: left;
+  display: inline-block;
+  margin-right: 0.75rem;
+}
+
+.myRightFooter {
+  float: right;
+  display: inline-block;
+  margin-left: 0.75rem;
+}
+#post.jumbotron{
+  text-align: center;
+  font-size: 18px;
+}
+#post.jumbotron .body{
+    border: rgb(200,200,200)solid 2px;
+    background-color: rgb(255,255,255);
+}
+
+p.companyAndDate{
+  font-size: 15px;
+}
+
+p.companyAndDate span{
+  float:right;
+}
+.body .row{
+  width:90%;
+  /*height:120%;*/
+  margin:0 auto;
+  padding-bottom: 80px;
+}
+
+.row.relatedWork .col-md-4 .cards{
+  border: rgb(200,200,200) solid 2px;
+  /*border-radius: 10px*/
+  padding: 1rem;
+  margin: .5rem;
+  background-color: rgb(255,255,255);
+}
+
+.row.relatedWork .col-md-4 .cards:hover{
+  border: rgb(200,200,200) solid 2px;
+  /*border-radius: 10px*/
+  padding: 1rem;
+  margin: .5rem;
+  background-color: rgba(255,255,255,0.5);
+}
+
+.landingPageIntro.col-md-5.col-sm-12 p{
+  line-height = 30px;
+}
+
+.portfolioDeck{
+  padding-top:15px;
+  padding-bottom:15px;
+  float: left;
+  position: relative;
+
+}
+
+.portfolioDeck .card:hover{
+  opacity: 0.5;
+}
+
+.row.portfolio.cards{
+  background-color:rgb(255,255,255);
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  border-color: rgba(100,100,100,0.3);
+  border-radius:10px;
+  margin-left:auto;
+}
+
+.portfolio{
+  width:90%;
+  margin:auto;
+}
+
+.hide {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-light .navbar-toggler {
+ /*line-height: 60px;*/
+ margin-top:15px;
+
+ border-color:rgba(200,200,200,0.3);
+ /*outline-color:rgba(200,200,200,0.5);*/
+}
+
+.navbar button:focus{
+ /*line-height: 60px;*/
+ outline:0;
+ /*box-shadow: none;*/
+ border-color: rgba(200,200,200,0.7);
+
+}
+
+.navbar-toggler .navbar-toggler-icon{
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(200,200,200, 0.3)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+
+  /*background-color: yellow;*/
+}
+
+.navbar-nav{
+  float:right;
+  text-align:right;
+}
+.downloadCV{
+  border: rgb(200,200,200) solid 2px;
+  border-radius: 5px;
+  padding:10px;
+  margin:auto;
+}
