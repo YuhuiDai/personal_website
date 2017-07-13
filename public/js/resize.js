@@ -25,7 +25,7 @@ window.onresize = function(event) {
 }
 
 function resizeDiv() {
-	$("a.navbar-brand").css("margin-right", parseInt($(window).width())*0.35 + "px");
+	$("a.navbar-brand").css("margin-right", parseInt($(window).width())*0.4 + "px");
 	$(".bubbleChart").css("max-width", parseInt($(window).innerWidth())*0.5 + "px");	
 }
 
