@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Belleza');
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,200italic,600italic&subset=latin,vietnamese');
-@import url('https://fonts.googleapis.com/css?family=Sniglet');
+@import url('https://fonts.googleapis.com/css?family=Lato:200,300,400');
 
 body {
   color: rgba(0, 0, 0, 0.5);
-  font-family: Belleza;
+  font-family: Lato;
+  font-weight: 200;
+}
 
+.navbar-brand {
+  margin: 0;
 }
 
 .back_to_top {
@@ -20,9 +21,6 @@ body {
   padding-top: 10vh;
 }
 
-.larger_landing_text {
-  font-size: 2.8em;
-}
 .normal_landing_text {
   font-size: 1.1em;
   line-height: 1.8em;
@@ -37,8 +35,6 @@ mark {
   color: rgb(222,143,143);
   background: transparent;
 }
-
-
 
 @media (max-width: 768px) {
   #myCanvas {
@@ -57,10 +53,10 @@ mark {
 }
 
 .navbar{
-  background-color: rgba(0,0,0,0.7);
+  background-color: white;
   border-radius: 0;
-  padding-bottom: 0.7rem;
-  padding-top: 0.7rem;
+  padding: 1rem 2rem;
+  box-shadow: 0 0 5px #e6e6e6;
 }
 
 @media (min-width: 992px) {
@@ -68,11 +64,6 @@ mark {
     padding-right: 1rem;
     padding-left: 1rem;
   }
-}
-
-a.navbar-brand{
-  margin-left: 40px;
-  margin-right: 45%;
 }
 
 a:hover {
@@ -185,10 +176,6 @@ p.companyAndDate span{
   background-color: rgba(255,255,255,0.5);
 }
 
-.landingPageIntro.col-md-5.col-sm-12 p{
-  line-height = 30px;
-}
-
 .portfolioDeck{
   padding-top:15px;
   padding-bottom:15px;
@@ -242,8 +229,6 @@ p.companyAndDate span{
 
 .navbar-toggler .navbar-toggler-icon{
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(200,200,200, 0.3)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-
-  /*background-color: yellow;*/
 }
 
 .navbar-nav{
