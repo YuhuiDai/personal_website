@@ -10,46 +10,22 @@
 
     <title>Yuhui Dai</title>
     <link rel="shortcut icon" type="image/x-icon" href="../resources/d.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" crossorigin="anonymous"></script>
-
     <link href="../public/css/bootstrap.css" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="../public/js/trianglify.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
+    <script src="../public/js/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
     <script src="../public/js/matrixRain.js"></script>
+
+
     <link href="../public/css/portfolioTemplate.css" rel="stylesheet">
-    <script src="../public/js/bubble/d3.min.js"></script>
-    <script src="../public/js/bubble/d3transform.js"></script>
-    <script src="../public/js/bubble/extarray.js"></script>
-    <script src="../public/js/bubble/misc.js"></script>
-    <script src="../public/js/bubble/microObserver.js"></script>
-    <script src="../public/js/bubble/plugin.js"></script>
-    <script src="../public/js/bubble/bubble.js"></script>
-    <script src="../public/js/bubble/centralClick.js"></script>
-    <script src="../public/js/bubble/lines.js"></script>
-    <script src="../public/js/bubble/index.js"></script>
     <style>
     @media (max-width: 768px) {
       body {
         overflow: hidden;
-      }
-    }
-
-    @media (min-width: 768px) {
-      .bubbleChart {
-        height: 540px;
-        margin-top: 7px;
-        font-family:'Source Sans Pro', sans-serif;
-        position: absolute;
-        right: 10px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .bubbleChart {
-        width: 0;
-        height: 0;
-        opacity: 0;
-        margin: 0;
-        padding: 0;
       }
     }
     </style>
@@ -70,13 +46,18 @@
 
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="portfolioPage.html">PROJECT</a>
-        <a class="nav-item nav-link" href="aboutMePage.html">CONTACT</a>
-        <a class="nav-item nav-link" href="contactPage.html">ABOUT</a>
+        <a class="nav-item nav-link" href="portfolioPage.html">PHOTOS</a>
+        <a class="nav-item nav-link" href="aboutMePage.html">ABOUT</a>
+        <a class="nav-item nav-link" href="contactPage.html">CONTACT</a>
 
       </div>
     </div>
   </nav>
-  <div class="header-img-container" id='myCanvas' style="height:250px"></div>
+  <div class="header-img-container" style="height:250px">
+    <canvas id="trianglify" style="visibility:visible"></canvas>
+    <div id='matrix' style="visibility:hidden" ></div>
+
+  </div>
   <!-- <div class="header-img-container-white-filler">&nbsp;</div> -->
 
   <div id="landingContainer" class="container">
@@ -85,21 +66,76 @@
         <p class="normal_landing_text">
           A current senior studies at NYU Abu Dhabi in the United Arab Emirates. I am interested in
           <a href="portfolioPage.html"><mark id="coding" style="font-size: 1.7rem">coding</mark></a>, 
-          <a href="portfolioPage.html"><mark id="data_visualization" style="font-size: 1.7rem">data visualization</mark></a> and <a href="portfolioPage.html"><mark id="prod_design" style="font-size: 1.7rem">product design</mark></a>.</p>
+          <a href="portfolioPage.html"><mark id="data_visualization" style="font-size: 1.7rem">data visualization</mark></a> and <a href="portfolioPage.html"><mark id="product_design" style="font-size: 1.7rem">product design</mark></a>.</p>
         <hr class="featurette-divider" id= "landingPageDivider">
         <footer>
           <p class="myFooter">© 2017 Yuhui Dai</p>
         </footer>
       </div>
 
-       <!--  <div class='col-lg-7 col-sm-12' style="visibility:hidden"></div>
+       <!--  <div class='col-lg-7 col-sm-12' ></div>
         <div class="bubbleChart col-lg-7 col-sm-12" id="bubbles" style="visibility:hidden"></div> -->
 
     </div>
 
   </div>
+    <script>
 
+        var element = document.getElementsByClassName('navbar')[0].getBoundingClientRect();
+        $('#matrix').css({position: "absolute", top: element.height, left: 0});
+        // var pattern = Trianglify({
+        //     variance: "0.51", 
+        //     cell_size: 30,
+        //     x_colors: 'random',
+        //     width: window.innerWidth,
+        //     height: 250
+        // });
+        // pattern.canvas(document.getElementById('trianglify'));
+        // var element = document.getElementsByClassName('navbar')[0].getBoundingClientRect();
+        // $('#matrix').css({position: "absolute", top: element.height, left: 0});
+        
+        var colorA = ['YlGnBu', 'YlOrRd', 'PuOr', 'Spectral', 'Purples', 'GnBu','PRGn', 'PuRd', 'Reds'];
+        
+        var pattern = Trianglify({
+          height: 250,
+          width: window.innerWidth,
+          x_colors:colorA[Math.floor(Math.random()*colorA.length)],
+          cell_size: 30,
+          seed: 1
+        })
+
+        pattern.canvas(document.getElementById('trianglify'));;
+        
+        var tween = new TWEEN.Tween({val: 0 })
+          .easing(TWEEN.Easing.Quadratic.InOut)
+          .to({ val: 7}, 3000)
+          .onUpdate(function() {
+            console.log(this.val);
+            pattern.recalculate({
+
+              variance: this.val + 0.5,
+              
+            })
+            pattern.canvas(document.getElementById('trianglify'))
+          })
+          .repeat(Infinity)
+          .yoyo(true)
+          .start();
+        function animate() {
+          try {
+            // start the timer for the next animation loop
+            requestAnimationFrame(animate)
+            TWEEN.update();
+          }
+          catch (e) {
+            console.log(e);
+          }
+        }
+        animate()
+        
+    </script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="../public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../public/js/resize.js"></script>
 </body>
 

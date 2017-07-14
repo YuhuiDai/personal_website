@@ -25,6 +25,9 @@ body {
   font-size: 1.1em;
   line-height: 1.8em;
 }
+#trianglify {
+        display: block;
+}
 
 #landingPageDivider{
   margin-top: 4rem;

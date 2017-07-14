@@ -2,11 +2,12 @@ var streams = [];
 var fadeInterval = 1.6;
 var symbolSize = 15;
 
+
 function setup() {
   var myCanvas = createCanvas(window.innerWidth,250);
-  myCanvas.parent("myCanvas");
+  myCanvas.parent("matrix");
   background(255, 255, 255);
-
+ 
   var x = 0;
  
   for (var i = 1; i < width / symbolSize ; i++) {

@@ -4,17 +4,26 @@ $(document).ready(function(){
 	$("#coding").hover(
 		
 		function(){
+			changeToHidden('trianglify');
+			changeToVisible("matrix");
 
-			changeToHidden("bubbles");
-			changeToVisible("myCanvas");
 		}
 	);
 	$("#data_visualization").hover(
 		
 		function(){
-			
-			changeToHidden("myCanvas");
+			changeToHidden('trianglify');
+			changeToHidden("matrix");
+
 			changeToVisible("bubbles");
+		}
+	);
+	$("#product_design").hover(
+		
+		function(){
+			changeToHidden('matrix');
+			changeToVisible("trianglify");
+			
 		}
 	);
 // document.ready finish
@@ -25,7 +34,7 @@ window.onresize = function(event) {
 }
 
 function resizeDiv() {
-	$("a.navbar-brand").css("margin-right", parseInt($(window).width())*0.4 + "px");
+	$("a.navbar-brand").css("margin-right", parseInt($(window).width())*0.3 + "px");
 	$(".bubbleChart").css("max-width", parseInt($(window).innerWidth())*0.5 + "px");	
 }
 

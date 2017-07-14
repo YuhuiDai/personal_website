@@ -9,41 +9,46 @@
     <meta name="author" content="Yuhui Dai and Ting-Che Lin">
 
     <title>example</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../resources/graphical.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/d.png">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
     <link href="../public/css/bootstrap.css" rel="stylesheet">
+
+
+
+
     <style>
-      #mycanvas {
+      #trianglify {
         display: block;
       }
+
     </style>
     
 
 </head>
 
 <body>
-
-  
-    <div id="mycanvas"></div>
+    
+    <div id="trianglify"></div>
     <script>
     var pattern = Trianglify({
         variance: "0.51", 
         cell_size: 30,
         x_colors: 'random',
         width: window.innerWidth,
-        height: window.innerHeight
+        height: 250
     });
-    document.body.appendChild(pattern.canvas());
-    console.log("appended");
+
+    //pattern.svg();
+    document.body.appendChild(pattern.svg());
+
     </script> 
 
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../public/js/resize.js"></script>
+   
 </body>
 
 </html>
