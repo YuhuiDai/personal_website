@@ -5,25 +5,25 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Yuhui Dai and Ting-Che Lin">
 
     <title>example</title>
     <link rel="shortcut icon" type="image/x-icon" href="../resources/d.png">
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.4.0/trianglify.min.js"></script>
-    <link href="../public/css/bootstrap.css" rel="stylesheet">
-
-
-
+     <script src="https://d3js.org/d3.v4.min.js"></script>
+    
 
     <style>
-      #trianglify {
-        display: block;
-      }
+      
+        svg {
+          background-color: white;
+        }
 
+        /*path {
+          stroke: #8A0707;
+          stroke-width: 1;
+          fill: none;
+          opacity: .4;
+        }*/
     </style>
     
 
@@ -31,23 +31,72 @@
 
 <body>
     
-    <div id="trianglify"></div>
-    <script>
-    var pattern = Trianglify({
-        variance: "0.51", 
-        cell_size: 30,
-        x_colors: 'random',
-        width: window.innerWidth,
-        height: 250
-    });
-
-    //pattern.svg();
-    document.body.appendChild(pattern.svg());
-
-    </script> 
-
+   <div class="container"></div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        
+        // Create svg
+        var svg = d3.select('.container')
+          .append('svg')
+          .attr('width', width)
+          .attr('height', height)
+          .on('load', svgLoad);
+
+        // Create a scale for the colors
+        var scaleColor = d3.scaleLinear()
+          .domain([0, width])
+          .range(d3.schemeCategory10)
+          .interpolate(d3.interpolateHslLong);
+
+        function callBack() {
+          // Loop over every circle
+          d3.selectAll('circle')
+            .each(function(d) {
+              // Get current circle
+              var element = d3.select(this);
+
+              // Get attributes
+              var cx = element.attr('cx');
+              var transform = element.attr('transform');
+              var transformValues = transform.match(/translate\((.*), (.*)\)/);
+
+              // Calculate x value
+              var x = transformValues[1];
+
+              element
+                .attr('fill', function() {
+                  // console.log(parseFloat(cx) + parseFloat(x));
+                  return scaleColor(parseFloat(cx) + parseFloat(x));
+                });
+            });
+        }
+
+
+        function svgLoad() {
+
+          
+          for (var i = 0; i < 120; i++) {
+
+            // Create random numbers for translation of circles
+            var randomNumber = Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * 700);
+            var randomNumber2 = Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * 200);
+
+            // Create circles
+            svg.append('circle')
+              .attr('cx', 0.55 * window.innerWidth)
+              .attr('cy', 120)
+              .attr('r', Math.random() * 30)
+              .attr('fill', '#aaaaaa')
+              .transition()
+              .duration(1000)
+                .attr('transform', 'translate(' +  randomNumber +
+                  ',' + randomNumber2 + ')')
+                .attr('opacity', Math.random())
+                .on('end', callBack);
+          }
+        }
+
+    </script>
    
 </body>
 

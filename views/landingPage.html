@@ -19,8 +19,8 @@
     <script src="../public/js/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
     <script src="../public/js/matrixRain.js"></script>
-
-
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="../public/js/bubbleExplosion.js"></script>
     <link href="../public/css/portfolioTemplate.css" rel="stylesheet">
     <style>
     @media (max-width: 768px) {
@@ -34,28 +34,30 @@
 <body>
 
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <a class="navbar-brand" href="landingPage.html">
      <img src="../resources/yuhui_dai_oceanBlue.png" height ="45px" class="d-inline-block align-top" alt="">
      <!-- <img src="../resources/5_pinkBlue.png" height ="45px" class="d-inline-block align-top" alt=""> -->
     </a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarResponsive">
 
-
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="portfolioPage.html">PROJECT</a>
-        <a class="nav-item nav-link" href="portfolioPage.html">PHOTOS</a>
-        <a class="nav-item nav-link" href="aboutMePage.html">ABOUT</a>
-        <a class="nav-item nav-link" href="contactPage.html">CONTACT</a>
+      <ul class="nav navbar-nav float-md-right">
+        <li ><a class="nav-item nav-link" href="portfolioPage.html" >PROJECT</a></li>
+        <li><a class="nav-item nav-link" href="portfolioPage.html">PHOTOS</a></li>
+        <li><a class="nav-item nav-link" href="aboutMePage.html">ABOUT</a></li>
+        <li><a class="nav-item nav-link" href="contactPage.html">CONTACT</a></li> 
 
       </div>
     </div>
   </nav>
   <div class="header-img-container" style="height:250px">
-    <canvas id="trianglify" style="visibility:visible"></canvas>
+    <div id='bubbleExplosion' style="visibility: visible"></div>
+    <canvas id="trianglify" style="visibility:hidden"></canvas>
     <div id='matrix' style="visibility:hidden" ></div>
+    
 
   </div>
   <!-- <div class="header-img-container-white-filler">&nbsp;</div> -->
@@ -80,20 +82,71 @@
 
   </div>
     <script>
-
-        var element = document.getElementsByClassName('navbar')[0].getBoundingClientRect();
-        $('#matrix').css({position: "absolute", top: element.height, left: 0});
-        // var pattern = Trianglify({
-        //     variance: "0.51", 
-        //     cell_size: 30,
-        //     x_colors: 'random',
-        //     width: window.innerWidth,
-        //     height: 250
-        // });
-        // pattern.canvas(document.getElementById('trianglify'));
-        // var element = document.getElementsByClassName('navbar')[0].getBoundingClientRect();
-        // $('#matrix').css({position: "absolute", top: element.height, left: 0});
         
+        var element = document.getElementsByClassName('navbar')[0].getBoundingClientRect();
+        $('#trianglify').css({position: "absolute", top: element.height, left: 0});
+        $('#matrix').css({position: "absolute", top: element.height, left: 0});
+        var svg = d3.select('#bubbleExplosion')
+          .append('svg')
+          .attr('width', window.innerWidth)
+          .attr('height', 250)
+          .on('load', svgLoad);
+
+        // Create a scale for the colors
+        var scaleColor = d3.scaleLinear()
+          .domain([0, window.innerWidth])
+          .range(d3.schemeCategory10)
+          .interpolate(d3.interpolateHslLong);
+
+        function callBack() {
+          // Loop over every circle
+          d3.selectAll('circle')
+            .each(function(d) {
+              // Get current circle
+              var element = d3.select(this);
+
+              // Get attributes
+              var cx = element.attr('cx');
+              var transform = element.attr('transform');
+              var transformValues = transform.match(/translate\((.*), (.*)\)/);
+
+              // Calculate x value
+              var x = transformValues[1];
+
+              element
+                .attr('fill', function() {
+                  // console.log(parseFloat(cx) + parseFloat(x));
+                  return scaleColor(parseFloat(cx) + parseFloat(x));
+                });
+            });
+        }
+
+
+        function svgLoad() {
+        
+          // Create many bubbles
+          for (var i = 0; i < 120; i++) {
+
+            // Create random numbers for translation of circles
+            var randomNumber = Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * 700);
+            var randomNumber2 = Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * 200);
+
+            // Create circles
+            svg.append('circle')
+              .attr('cx', 0.55 * window.innerWidth)
+              .attr('cy', 120)
+              .attr('r', Math.random() * 30)
+              .attr('fill', '#aaaaaa')
+              .transition()
+              .duration(1000)
+                .attr('transform', 'translate(' +  randomNumber +
+                  ',' + randomNumber2 + ')')
+                .attr('opacity', Math.random())
+                .on('end', callBack);
+          }
+        };
+        
+
         var colorA = ['YlGnBu', 'YlOrRd', 'PuOr', 'Spectral', 'Purples', 'GnBu','PRGn', 'PuRd', 'Reds'];
         
         var pattern = Trianglify({
@@ -110,20 +163,14 @@
           .easing(TWEEN.Easing.Quadratic.InOut)
           .to({ val: 7}, 3000)
           .onUpdate(function() {
-            console.log(this.val);
-            pattern.recalculate({
-
-              variance: this.val + 0.5,
-              
-            })
-            pattern.canvas(document.getElementById('trianglify'))
+            pattern.recalculate({width: window.innerWidth, variance: this.val + 0.5});
+            pattern.canvas(document.getElementById('trianglify'));
           })
           .repeat(Infinity)
           .yoyo(true)
           .start();
         function animate() {
           try {
-            // start the timer for the next animation loop
             requestAnimationFrame(animate)
             TWEEN.update();
           }
@@ -132,7 +179,6 @@
           }
         }
         animate()
-        
     </script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="../public/js/bootstrap.min.js"></script>

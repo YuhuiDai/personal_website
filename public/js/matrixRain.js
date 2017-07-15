@@ -4,7 +4,7 @@ var symbolSize = 15;
 
 
 function setup() {
-  var myCanvas = createCanvas(window.innerWidth,250);
+  var myCanvas = createCanvas(window.innerWidth * 2,250);
   myCanvas.parent("matrix");
   background(255, 255, 255);
  
@@ -52,18 +52,18 @@ function Symbol(x, y, speed, first, opacity) {
         this.value = round(random(0,9));
       }
     }
-  }
+  };
 
   this.rain = function() {
     this.y = (this.y >= height) ? 0 : this.y += this.speed;
-  }
+  };
 
 }
 
 function Stream() {
   this.symbols = [];
   this.totalSymbols = round(random(5, 18));
-  this.speed = random(5, 14);
+  this.speed = random(5, 18);
 
   this.generateSymbols = function(x, y) {
     var opacity = 255;
@@ -82,7 +82,7 @@ function Stream() {
       y -= symbolSize;
       first = false;
     }
-  }
+  };
 
   this.render = function() {
     this.symbols.forEach(function(symbol) {
@@ -95,5 +95,5 @@ function Stream() {
       symbol.rain();
       symbol.setToRandomSymbol();
     });
-  }
+  };
 }

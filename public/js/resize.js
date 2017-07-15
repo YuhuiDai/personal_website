@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$("#coding").hover(
 		
 		function(){
+			changeToHidden('bubbleExplosion');
 			changeToHidden('trianglify');
 			changeToVisible("matrix");
 
@@ -12,15 +13,16 @@ $(document).ready(function(){
 	$("#data_visualization").hover(
 		
 		function(){
+			changeToHidden('bubbleExplosion');
 			changeToHidden('trianglify');
 			changeToHidden("matrix");
 
-			changeToVisible("bubbles");
 		}
 	);
 	$("#product_design").hover(
 		
 		function(){
+			changeToHidden('bubbleExplosion');
 			changeToHidden('matrix');
 			changeToVisible("trianglify");
 			
@@ -34,7 +36,7 @@ window.onresize = function(event) {
 }
 
 function resizeDiv() {
-	$("a.navbar-brand").css("margin-right", parseInt($(window).width())*0.3 + "px");
+	
 	$(".bubbleChart").css("max-width", parseInt($(window).innerWidth())*0.5 + "px");	
 }
 
