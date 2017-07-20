@@ -4,7 +4,7 @@ var symbolSize = 15;
 
 
 function setup() {
-  var myCanvas = createCanvas(window.innerWidth * 2,250);
+  var myCanvas = createCanvas(window.innerWidth,250);
   myCanvas.parent("matrix");
   background(255, 255, 255);
  

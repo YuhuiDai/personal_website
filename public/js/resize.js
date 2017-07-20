@@ -5,6 +5,7 @@ $(document).ready(function(){
 		
 		function(){
 			changeToHidden('bubbleExplosion');
+			changeToHidden('sankeyChart');
 			changeToHidden('trianglify');
 			changeToVisible("matrix");
 
@@ -16,12 +17,13 @@ $(document).ready(function(){
 			changeToHidden('bubbleExplosion');
 			changeToHidden('trianglify');
 			changeToHidden("matrix");
-
+			changeToVisible('sankeyChart');
 		}
 	);
 	$("#product_design").hover(
 		
 		function(){
+			changeToHidden('sankeyChart');
 			changeToHidden('bubbleExplosion');
 			changeToHidden('matrix');
 			changeToVisible("trianglify");

@@ -38,6 +38,9 @@ body {
 #bubbleExplosion {
   display: block;
 }
+#sankeyChart {
+  display: block;
+}
 #landingPageDivider{
   margin-top: 4rem;
   margin-bottom: 0;

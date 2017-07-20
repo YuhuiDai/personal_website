@@ -1,47 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        
-        <style type="text/css">
-
-            .node rect {
-                cursor: crosshair;
-                fill-opacity: .9;
-                shape-rendering: crispEdges;
-            }
-
-            .node text {
-                color: #3d3837;
-                pointer-events: none;
-            }
-
-            .link {
-                fill: none;
-                stroke: black;
-                stroke-opacity: 0.03;
-            }
-
-            .gradient-link {
-                fill: none;
-                stroke-opacity: 0.7;
-            }
-
-
-        </style>
-
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-        <script src="../public/js/sankey.js"></script>
-        
-
-    </head>
-
-    <body>
-         <div id="sankeyChart"></div>
-        <script type="text/javascript">
-
-            var margin = {top: 10, right: 10, bottom: 10, left: 10},
+var margin = {top: 10, right: 10, bottom: 10, left: 10},
                 width = window.innerWidth*0.8;
 
             var formatNumber = d3.format(",.0f"),    // zero decimal places
@@ -64,7 +21,7 @@
             var path = sankey.link();
 
             // load the data
-            d3.json("sankey-formatted.json", function(error, graph) {
+            d3.json("../sankey-formatted.json", function(error, graph) {
                 sankey
                     .nodes(graph.nodes)
                     .links(graph.links)
@@ -187,6 +144,3 @@
 
 
             });
-        </script>
-    </body>
-</html>
