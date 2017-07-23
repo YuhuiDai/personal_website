@@ -13,16 +13,16 @@ $(document).ready(function () {
     //circleColor: use @default
     data: {
       items: [
-        {text: "Java", category: "1", description: "sample"},
-        {text: "Javascript", category: "2", description: "sample"},
-        {text: "Illustrator", category: "3", description: "sample"},
-        {text: "Photoshop", category: "3", description: "sample"},
-        {text: "Css", category: "2", description: "sample"},
-        {text: "Python", category: "1", description: "sample"},
-        {text: "C/C++", category: "1", description: "sample"},
-        {text: "InDesign", category: "3", description: "sample"},
-        {text: "SQL", category: "4", description: "sample"},
-        {text: "R", category: "4", description: "sample"},
+        {text: "Java", category: "4", description: ""},
+        {text: "Illustrator", category: "3", description: ""},
+        {text: "Photoshop", category: "3", description: ""},
+        {text: "Css", category: "2", description: ""},
+        {text: "Html", category: "2", description: ""},
+        {text: "Python", category: "4", description: ""},
+        {text: "InDesign", category: "3", description: ""},
+        {text: "Stata", category: "1", description: ""},
+        {text: "R", category: "1", description: ""},
+        {text: "Javascript", category: "4", description: ""}
       ],
       eval: function (item) {return item.category;},
       classed: function (item) {return item.text.split(" ").join("");}
@@ -64,22 +64,22 @@ $(document).ready(function () {
                 x: function (d) {return d.cx;},
                 y: function (d) {return d.cy;}
               }
-            },
-            {// Line #1
-              textField: "description",
-              classed: {description: true},
-              style: {
-                "font-size": "14px",
-                "font-family": "Source Sans Pro, sans-serif",
-                "text-anchor": "middle",
-                fill: "white"
-              },
-              attr: {
-                dy: "20px",
-                x: function (d) {return d.cx;},
-                y: function (d) {return d.cy;}
-              }
             }
+            // {// Line #1
+            //   textField: "description",
+            //   classed: {description: true},
+            //   style: {
+            //     "font-size": "14px",
+            //     "font-family": "Source Sans Pro, sans-serif",
+            //     "text-anchor": "middle",
+            //     fill: "white"
+            //   },
+            //   attr: {
+            //     dy: "20px",
+            //     x: function (d) {return d.cx;},
+            //     y: function (d) {return d.cy;}
+            //   }
+            // }
           ],
           centralFormat: [
             {// Line #0
