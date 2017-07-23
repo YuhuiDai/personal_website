@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Yuhui Dai">
+    <meta name="author" content="Yuhui Dai and Ting-Che Lin">
 
-    <title>About</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../resources/d.png">
+    <title>Portfolio Template - About Me Page</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/graphical.png">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" crossorigin="anonymous"></script>
 
     <link href="../public/css/bootstrap.css" rel="stylesheet">
     <link href="../public/css/portfolioTemplate.css" rel="stylesheet">
-    <script src="../public/js/d3.min.js"></script>
+    <script src="../public/js/bubble/d3.min.js"></script>
     <script src="../public/js/bubble/d3transform.js"></script>
     <script src="../public/js/bubble/extarray.js"></script>
     <script src="../public/js/bubble/misc.js"></script>
@@ -46,21 +46,17 @@
     <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="landingPage.html">
-        <img src="../resources/yuhui_dai_oceanBlue.png" height ="45px" class="d-inline-block align-top" alt="">
+     <img src="../resources/graphical.png" width="150px" height ="60px" class="d-inline-block align-top" alt="">
     </a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
 
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="portfolioPage.html" style="color:#fbfafa">Portfolio</a>
+        <a class="nav-item nav-link" href="aboutMePage.html" style="color:#fbfafa">About Me</a>
+        <a class="nav-item nav-link" href="contactPage.html" style="color:#fbfafa">Contact</a>
 
-            <ul class="nav navbar-nav float-md-right">
-                <li ><a class="nav-item nav-link" href="portfolioPage.html" >PROJECT</a></li>
-                <li><a class="nav-item nav-link" href="photo.html">PHOTOS</a></li>
-                <li><a class="nav-item nav-link active" href="aboutMePage.html">ABOUT</a></li>
-                <li><a class="nav-item nav-link" href="contactPage.html">CONTACT</a></li>
-
-            </ul>
-        </div>
+      </div>
     </div>
   </nav>
 
@@ -70,11 +66,11 @@
 
         <div class="row" style="text-align:left">
 
-          <div class="col-lg-6 col-sm-12" style="text-align:center">
-            <img style="border-radius: 7px"src="../photo/yuhui.jpg" height="500px">
+          <div class="col-lg-7 col-sm-12" style="text-align:center">
+            <img class="img-fluid" style="border-radius: 7px"src="http://placehold.it/500x350">
           </div>
-          <div class="col-lg-6 col-sm-12">
-            <h1 style="margin-top: 30px"> Yuhui Dai </h1>
+          <div class="col-lg-5 col-sm-12">
+            <h1 style="margin-top: 30px"> Ting-Che Lin </h1>
             <hr style="visibility:hidden">
             <p style="font-size: 1.2rem; vertical-align: middle">
               Introduction goes here...A current senior studies at NYU Abu Dhabi in the United Arab Emirates. I am interested in and data visualization....more introduction goes here. Introduction goes here...A current senior studies at NYU Abu Dhabi in the United Arab Emirates.
@@ -93,9 +89,9 @@
 
   <div class="container" style="margin-top: 70px">
     <div class='row'>
-      <div class="col-md-3 col-sm-12" style="margin-left: 20px; ">
-        <h1 style="text-align: left;margin: 20px">Technical</h1>
-        <h1 style="text-align: left; margin:20px">Skills</h1>
+      <div class="landingPageIntro">
+        <p class="larger_landing_text" style="text-align: left">Technical</p>
+        <p class="larger_landing_text" style="text-align: left">Skills</p>
       </div>
       <div class="bubbleChart col-md-7 col-sm-12" id="bubbles_aboutMe" style="position: relative; margin:auto; display: block"></div>
     </div>
@@ -104,20 +100,18 @@
 
   <div class="container" style="margin-top: 70px;">
       <div id="aboutMeFunFacts">
-        <div class="row">
-          <div class="col-lg-6 col-sm-12" style="margin:auto;text-align:left;padding: 20px;padding-left:50px">
+        <div class="row" style="text-align:left">
+          <div class="col-lg-5 col-sm-12" style="padding-left:70px">
             <h1 > Fun Facts </h1>
             <hr style="visibility:hidden">
-            <p style="font-size: 1.2rem; vertical-align: middle">1. My favorite sport is roller blading</p>
-            <p style="font-size: 1.2rem; vertical-align: middle">2. Last Week Tonight is my Sunday routine</p>
-            <p style="font-size: 1.2rem; vertical-align: middle">3. I used to write fantasy/fictional journals as a kid</p>
-            <p style="font-size: 1.2rem; vertical-align: middle">4. I love experimenting with food</p>
-            <p style="font-size: 1.2rem; vertical-align: middle">5. I read fashion magazine in my spare time</p>
-            <p style="font-size: 1.2rem; vertical-align: middle">6. I follow Design and DIY social media</p>
-            <p style="font-size: 1.2rem; vertical-align: middle">7. My magic number is 7</p>
+            <p style="font-size: 1.2rem; vertical-align: middle">1. I used to dance when I was a kid</p>
+            <p style="font-size: 1.2rem; vertical-align: middle">2. I want to be a super mutant</p>
+            <p style="font-size: 1.2rem; vertical-align: middle">3. I want to live on Pandora</p>
+            <p style="font-size: 1.2rem; vertical-align: middle">4. I worship Jedi Master Yoda</p>
+            <p style="font-size: 1.2rem; vertical-align: middle">5. I love ramen</p>
           </div>
-          <div class="col-lg-6 col-sm-12" style="text-align:center">
-            <img height="400px" style="border-radius: 7px"src="../photo/soaked.jpg">
+          <div class="col-lg-7 col-sm-12" style="text-align:center">
+            <img class="img-fluid" style="border-radius: 7px"src="http://placehold.it/500x350">
           </div>
 
         </div>
@@ -125,23 +119,23 @@
 
         <hr style="margin-top:70px">
         <footer>
-          <p class="myFooter" style="margin-bottom: 50px">© 2017 Yuhui Dai</p>
+          <p class="myFooter" style="margin-bottom: 50px">© 2017  Ting-Che Lin · Yuhui Dai</p>
 
-            <p class="myRightFooter">
-                <a href="https://www.facebook.com/yuhui.dai.1">
-                    <img src="../resources/facebook.png" width="20px" height="20px" alt="">
-                </a>
-            </p>
-            <p class="myRightFooter">
-                <a href="https://github.com/YuhuiDai">
-                    <img src="../resources/github.png" width="20px" height="20px" alt=" ">
-                </a>
-            </p>
-            <p class="myRightFooter">
-                <a href="https://www.linkedin.com/in/yuhui-dai-78439185/">
-                    <img src="../resources/linkedin.png" width="20px" height="20px" alt=" ">
-                </a>
-            </p>
+          <p class="myRightFooter">
+            <a href="https://www.facebook.com">
+              <img src="../resources/facebook.png" width="20px" height"20px" alt="">
+            </a>
+          </p>
+          <p class="myRightFooter">
+            <a href="https://www.github.com">
+             <img src="../resources/github.png" width="20px" height"20px" alt=" ">
+            </a>
+          </p>
+          <p class="myRightFooter">
+            <a href="https://www.linkedin.com">
+              <img src="../resources/linkedin.png" width="20px" height"20px" alt=" ">
+            </a>
+          </p>
         </footer>
       </div>
     </div>

@@ -1,25 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:200,300,400');
+@import url('https://fonts.googleapis.com/css?family=Belleza');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600,200italic,600italic&subset=latin,vietnamese');
+@import url('https://fonts.googleapis.com/css?family=Sniglet');
 
 body {
   color: rgba(0, 0, 0, 0.5);
-  font-family: Lato;
-  font-weight: 200;
+  font-family: Belleza;
+
 }
-.nav{
-  list-style: none;
-}
-.navbar-brand {
-  margin: 0;
-}
-.nav-item{
-  margin: 0 0.5rem;
-}
-.active>.nav-link .nav-item {
-    color: black;
-}
-#navbarResponsive {
-  margin-left: 250px
-}
+
 .back_to_top {
   position: absolute;
   left: 50%;
@@ -31,28 +20,25 @@ body {
   padding-top: 10vh;
 }
 
+.larger_landing_text {
+  font-size: 2.8em;
+}
 .normal_landing_text {
   font-size: 1.1em;
   line-height: 1.8em;
 }
-#trianglify {
-  display: block;
-}
-#bubbleExplosion {
-  display: block;
-}
-#sankeyChart {
-  display: block;
-}
+
 #landingPageDivider{
   margin-top: 4rem;
   margin-bottom: 0;
 }
 
 mark {
-  color: #2A99FF;
+  color: rgb(222,143,143);
   background: transparent;
 }
+
+
 
 @media (max-width: 768px) {
   #myCanvas {
@@ -71,14 +57,10 @@ mark {
 }
 
 .navbar{
-  background-color: white;
+  background-color: rgba(0,0,0,0.7);
   border-radius: 0;
-  padding: 1rem 2rem;
-  box-shadow: 0 0 5px #e6e6e6;
-}
-
-.header-img-container{
-  box-shadow: 0 0 5px #e6e6e6;
+  padding-bottom: 0.7rem;
+  padding-top: 0.7rem;
 }
 
 @media (min-width: 992px) {
@@ -87,16 +69,15 @@ mark {
     padding-left: 1rem;
   }
 }
-  
+
+a.navbar-brand{
+  margin-left: 40px;
+  margin-right: 45%;
+}
 
 a:hover {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.navbar-light .navbar-nav .nav-link:hover {
-  text-decoration: none;
-  color: #2A99FF;
+  color: rgba(0, 0, 0, 0.7);
 }
 a {
   color: rgba(0, 0, 0, 0.5);
@@ -204,13 +185,17 @@ p.companyAndDate span{
   background-color: rgba(255,255,255,0.5);
 }
 
+.landingPageIntro.col-md-5.col-sm-12 p{
+  line-height = 30px;
+}
+
 .portfolioDeck{
   padding-top:15px;
   padding-bottom:15px;
   float: left;
   position: relative;
-}
 
+}
 
 .portfolioDeck .card:hover{
   opacity: 0.5;
@@ -239,41 +224,6 @@ p.companyAndDate span{
     padding: 0;
 }
 
-.photo{
-    width:95%;
-    margin:auto;
-    margin-top: 20px;
-}
-.photoDeck{
-    padding: 0;
-    float: left;
-    position: relative;
-}
-
-.overlay {
-    position: absolute;
-    padding: 5px;
-    top:5px;
-    left:5px;
-    bottom:5px;
-    right:5px;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: rgb(204, 204, 204);
-}
-.photoDeck:hover .overlay {
-    opacity: 0.9;
-}
-.photoDescription {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-}
-
 .navbar-light .navbar-toggler {
  /*line-height: 60px;*/
  margin-top:15px;
@@ -292,6 +242,8 @@ p.companyAndDate span{
 
 .navbar-toggler .navbar-toggler-icon{
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(200,200,200, 0.3)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+
+  /*background-color: yellow;*/
 }
 
 .navbar-nav{

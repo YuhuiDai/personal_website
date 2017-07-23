@@ -4,30 +4,17 @@ $(document).ready(function(){
 	$("#coding").hover(
 		
 		function(){
-			changeToHidden('bubbleExplosion');
-			changeToHidden('sankeyChart');
-			changeToHidden('trianglify');
-			changeToVisible("matrix");
 
+			changeToHidden("bubbles");
+			changeToVisible("myCanvas");
 		}
 	);
 	$("#data_visualization").hover(
 		
 		function(){
-			changeToHidden('bubbleExplosion');
-			changeToHidden('trianglify');
-			changeToHidden("matrix");
-			changeToVisible('sankeyChart');
-		}
-	);
-	$("#product_design").hover(
-		
-		function(){
-			changeToHidden('sankeyChart');
-			changeToHidden('bubbleExplosion');
-			changeToHidden('matrix');
-			changeToVisible("trianglify");
 			
+			changeToHidden("myCanvas");
+			changeToVisible("bubbles");
 		}
 	);
 // document.ready finish
@@ -38,7 +25,7 @@ window.onresize = function(event) {
 }
 
 function resizeDiv() {
-	
+	$("a.navbar-brand").css("margin-right", parseInt($(window).width())*0.45 + "px");
 	$(".bubbleChart").css("max-width", parseInt($(window).innerWidth())*0.5 + "px");	
 }
 

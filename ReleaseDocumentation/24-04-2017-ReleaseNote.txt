@@ -1,0 +1,12 @@
+Release on Monday 24-04-2017
+
+State of the Code
+-Contact me page template
+  -Fully functioning contact me page with placeholder information inplace to be replaced
+  -Utilizes the newest Bootsrap 4 Framework
+-Unit Testing for Contact me page
+  -Currently test for
+    -Page title
+    -Broken links
+    -Author
+  -Currently only work for locally hosted contact page, will update to work for GitHub hosted page once the GitHub page is deployed

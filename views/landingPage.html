@@ -6,54 +6,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Yuhui Dai">
+    <meta name="author" content="Yuhui Dai and Ting-Che Lin">
 
-    <title>Yuhui Dai</title>
-    <link rel="shortcut icon" type="image/x-icon" href="../resources/d.png">
-    <link href="../public/css/bootstrap.css" rel="stylesheet">
+    <title>Portfolio Template - Landing Page</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/graphical.png">
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js" crossorigin="anonymous"></script>
-    <script src="../public/js/trianglify.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/16.3.5/Tween.min.js"></script>
-    <script src="../public/js/d3.min.js"></script>
+
+    <link href="../public/css/bootstrap.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
     <script src="../public/js/matrixRain.js"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="../public/js/sankey.js"></script>
-    <script src="../public/js/bubbleExplosion.js"></script>
     <link href="../public/css/portfolioTemplate.css" rel="stylesheet">
+    <script src="../public/js/bubble/d3.min.js"></script>
+    <script src="../public/js/bubble/d3transform.js"></script>
+    <script src="../public/js/bubble/extarray.js"></script>
+    <script src="../public/js/bubble/misc.js"></script>
+    <script src="../public/js/bubble/microObserver.js"></script>
+    <script src="../public/js/bubble/plugin.js"></script>
+    <script src="../public/js/bubble/bubble.js"></script>
+    <script src="../public/js/bubble/centralClick.js"></script>
+    <script src="../public/js/bubble/lines.js"></script>
+    <script src="../public/js/bubble/index.js"></script>
     <style>
-
-      .node rect {
-          cursor: crosshair;
-          fill-opacity: .9;
-          shape-rendering: crispEdges;
-      }
-
-      .node text {
-          pointer-events: none;
-          text-shadow: 0 1px 0 #fff;
-      }
-
-      .link {
-          fill: none;
-          stroke: black;
-          stroke-opacity: 0.03;
-      }
-      .link:hover {
-          stroke-opacity: 0.1;
-      }
-
-      .gradient-link {
-          fill: none;
-          stroke-opacity: 0.7;
-      }
-
     @media (max-width: 768px) {
       body {
         overflow: hidden;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .bubbleChart {
+        height: 540px;
+        margin-top: 7px;
+        font-family:'Source Sans Pro', sans-serif;
+        position: absolute;
+        right: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .bubbleChart {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        margin: 0;
+        padding: 0;
       }
     }
     </style>
@@ -62,317 +60,51 @@
 <body>
 
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-    <a class="navbar-brand" href="landingPage.html">
-     <img src="../resources/yuhui_dai_oceanBlue.png" height ="45px" class="d-inline-block align-top" alt="">
-     <!-- <img src="../resources/5_pinkBlue.png" height ="45px" class="d-inline-block align-top" alt=""> -->
-    </a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
     </button>
-    
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <a class="navbar-brand" href="landingPage.html">
+     <img src="../resources/graphical.png" width="150px" height ="60px" class="d-inline-block align-top" alt="">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-      <ul class="nav navbar-nav float-md-right">
-        <li ><a class="nav-item nav-link" href="portfolioPage.html" >PROJECT</a></li>
-        <li><a class="nav-item nav-link" href="photo.html">PHOTOS</a></li>
-        <li><a class="nav-item nav-link" href="aboutMePage.html">ABOUT</a></li>
-        <li><a class="nav-item nav-link" href="contactPage.html">CONTACT</a></li> 
 
-      </ul>
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="portfolioPage.html" style="color:#fbfafa">Portfolio</a>
+        <a class="nav-item nav-link" href="aboutMePage.html" style="color:#fbfafa">About Me</a>
+        <a class="nav-item nav-link" href="contactPage.html" style="color:#fbfafa">Contact</a>
+
+      </div>
     </div>
   </nav>
-  <div class="header-img-container" style="height:250px">
-    <div id='bubbleExplosion' style="visibility: visible"></div>
-    <canvas id="trianglify" style="visibility:hidden"></canvas>
-    <div id='matrix' style="visibility:hidden" ></div>
-    <div id='sankeyChart' style='visibility:hidden'></div>
-    
 
-  </div>
-  <!-- <div class="header-img-container-white-filler">&nbsp;</div> -->
+
 
   <div id="landingContainer" class="container">
     <div class='row'>
-      <div class="landingPageIntro">
+      <div class="landingPageIntro col-md-5 col-sm-12">
+        <p class="larger_landing_text">Ting-Che Lin</p>
         <p class="normal_landing_text">
-          Hello! My name is Yuhui. I am currently pursuing a master degree at Cornell Tech in Information System,
-            with a specific focus on Connective Media and Human Computer Interaction. Prior to Cornell, I was a student at NYU Abu Dhabi in the United Arab Emirates.
-            My passions include
-          <a href="portfolioPage.html"><mark id="coding" style="font-size: 1.7rem">coding</mark></a>, 
-          <a href="portfolioPage.html"><mark id="data_visualization" style="font-size: 1.7rem">data visualization</mark></a> and <a href="portfolioPage.html"><mark id="product_design" style="font-size: 1.7rem">product design</mark></a>.</p>
+          A current senior studies at NYU Abu Dhabi in the United Arab Emirates. I am interested in
+          <a href="portfolioPage.html"><mark id="coding" style="font-size: 1.7rem">coding</mark></a>
+          and
+          <a href="portfolioPage.html"><mark id="data_visualization" style="font-size: 1.7rem">data visualization</mark></a>.</p>
         <hr class="featurette-divider" id= "landingPageDivider">
-          <footer>
-              <p class="myFooter">© 2017 Yuhui Dai</p>
-              <p class="myRightFooter">
-                  <a href="https://www.facebook.com/yuhui.dai.1">
-                      <img src="../resources/facebook.png" width="20px" height="20px" alt="">
-                  </a>
-              </p>
-              <p class="myRightFooter">
-                  <a href="https://github.com/YuhuiDai">
-                      <img src="../resources/github.png" width="20px" height="20px" alt=" ">
-                  </a>
-              </p>
-              <p class="myRightFooter">
-                  <a href="https://www.linkedin.com/in/yuhui-dai-78439185/">
-                      <img src="../resources/linkedin.png" width="20px" height="20px" alt=" ">
-                  </a>
-              </p>
-          </footer>
+        <footer>
+          <p class="myFooter">© 2017  Ting-Che Lin · Yuhui Dai</p>
+        </footer>
       </div>
+
+        <div id="myCanvas" class='col-lg-7 col-sm-12' style="visibility:hidden"></div>
+        <div class="bubbleChart col-lg-7 col-sm-12" id="bubbles" style="visibility:hidden"></div>
+
+
 
     </div>
 
   </div>
-    <script>
-        
-        var element = document.getElementsByClassName('navbar')[0].getBoundingClientRect();
-        $('#trianglify').css({position: "absolute", top: element.height, left: 0});
-        $('#sankeyChart').css({position: "absolute", top: element.height, left: 0});
-        $('#matrix').css({position: "absolute", top: element.height, left: 0});
 
-        var margin = {top: 10, right: 10, bottom: 10, left: 10},
-                width = window.innerWidth;
-
-            var formatNumber = d3.format(",.0f"),    // zero decimal places
-                format = function(d) { return formatNumber(d) ; };
-
-            // append the svg_sankey canvas to the page
-            var svg_sankey = d3.select("#sankeyChart").append("svg")
-                .attr("width", width)
-                .attr("height", 250)
-                .append("g");
-
-            // Set the sankey diagram properties
-            var sankey = d3.sankey()
-                .nodeWidth(40)
-                .nodePadding(5)
-                .size([width, 250 ]);
-
-            var path = sankey.link();
-
-            // load the data
-            d3.json("sankey-formatted.json", function(error, graph) {
-                sankey
-                    .nodes(graph.nodes)
-                    .links(graph.links)
-                    .layout(32);
-
-                var gradientLink = svg_sankey.append("g").selectAll(".gradient-link")
-                    .data(graph.links)
-                    .enter().append("path")
-                    .attr("class", "gradient-link")
-                    .attr("d", path)
-                    .style("stroke-width", function(d) {
-                        return Math.max(1, d.dy);
-                    })
-                    .sort(function(a, b) {
-                        return b.dy - a.dy;
-                    })
-                    .style('stroke', function(d) {
-                        var sourceColor = d.source.c;
-                        var targetColor = d.target.c;
-                        var id = 'c-' + sourceColor + '-to-' + targetColor;
-
-                        var gradient = svg_sankey.append('defs')
-                            .append('linearGradient')
-                            .attr('id', id)
-                            .attr('x1', '0%')
-                            .attr('y1', '0%')
-                            .attr('x2', '100%')
-                            .attr('y2', '0%')
-                            .attr('spreadMethod', 'pad');
-
-                        gradient.append('stop')
-                            .attr('offset', '0%')
-                            .attr('stop-color', sourceColor);
-
-                        gradient.append('stop')
-                            .attr('offset', '100%')
-                            .attr('stop-color', targetColor);
-
-                        return "url(#" + id + ")";
-                    });
-
-                var link = svg_sankey.append("g").selectAll(".link")
-                    .data(graph.links)
-                    .enter().append("path")
-                    .attr("class", "link")
-                    .attr("d", path)
-                    .style("stroke-width", function(d) { return Math.max(1, d.dy); });
-
-                // add in the nodes
-                var node = svg_sankey.append("g").selectAll(".node")
-                    .data(graph.nodes)
-                    .enter().append("g")
-                    .attr("class", "node")
-                    .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"; });
-
-                node.append("text")
-                    .attr("x", -6)
-                    .attr("y", function(d) { return d.dy / 2; })
-                    .attr("dy", ".35em")
-                    .attr("text-anchor", "end")
-                    .attr("transform", null)
-                    .text(function(d) { return d.name; })
-                    .filter(function(d) { return d.x < width / 2; })
-                    .attr("x", 6 + sankey.nodeWidth())
-                    .attr("text-anchor", "start");
-
-                node.append("rect")
-                    .attr("height", function(d) { return d.dy; })
-                    .attr("width", sankey.nodeWidth())
-                    .style("fill", function(d) {return d.color = d.c; })
-                    .text(function(d) {return d.name; });
-
-                function highlightConnected(g) {
-
-                    gradientLink.filter(function (d) { return d.source === g || d.target === g; })
-                      .style("stroke-opacity", 0.9);
-
-                }
-
-                function fadeUnconnected(g) {
-                    
-                    var relatedNames = [g.name];
-                    
-                    if (g.sourceLinks.length > 0) {
-                        for (var i = 0; i< g.sourceLinks.length; i++) {
-                            relatedNames.push(g.sourceLinks[i].target.name);
-                        }
-                    }
-                    if (g.targetLinks.length > 0) {
-                        for (var i = 0; i< g.targetLinks.length; i++) {
-                            relatedNames.push(g.targetLinks[i].source.name);
-                        }
-                    }
-                    
-                    gradientLink.filter(function (d) {return d.source !== g && d.target !== g; })
-                                .transition().duration(400).style("stroke-opacity", 0.1);
-
-                    node.filter(function (d) { return !relatedNames.includes(d.name);})
-                        .transition().duration(400).style("opacity", 0.1);
-                  }
-
-                function restoreLinksAndNodes() {
-
-                    gradientLink.transition().duration(400).style("stroke-opacity", 0.7);
-                    node.transition().duration(400).style('opacity', 1);    
-                  }
-
-                node.on("mouseenter", function (g) {
-                    
-                      restoreLinksAndNodes();
-                      highlightConnected(g);
-                      fadeUnconnected(g);
-                    
-                  });
-
-                node.on("mouseleave", function () {
-                      restoreLinksAndNodes();
-                    
-                  });
-
-
-            });
-
-
-
-        //bubble Explosion code
-        var svg = d3.select('#bubbleExplosion')
-          .append('svg')
-          .attr('width', window.innerWidth)
-          .attr('height', 250)
-          .on('load', svgLoad);
-
-        // Create a scale for the colors
-        var scaleColor = d3.scaleLinear()
-          .domain([0, window.innerWidth])
-          .range(d3.schemeCategory10)
-          .interpolate(d3.interpolateHslLong);
-
-        function callBack() {
-          // Loop over every circle
-          d3.selectAll('circle')
-            .each(function(d) {
-              // Get current circle
-              var element = d3.select(this);
-
-              // Get attributes
-              var cx = element.attr('cx');
-              var transform = element.attr('transform');
-              var transformValues = transform.match(/translate\((.*), (.*)\)/);
-
-              // Calculate x value
-              var x = transformValues[1];
-
-              element
-                .attr('fill', function() {
-                  // console.log(parseFloat(cx) + parseFloat(x));
-                  return scaleColor(parseFloat(cx) + parseFloat(x));
-                });
-            });
-        }
-
-
-        function svgLoad() {
-        
-          // Create many bubbles
-          for (var i = 0; i < 150; i++) {
-
-            // Create random numbers for translation of circles
-            var randomNumber = Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * 700);
-            var randomNumber2 = Math.floor((Math.random() < 0.5 ? -1 : 1) * Math.random() * 200);
-
-            // Create circles
-            svg.append('circle')
-              .attr('cx', 0.55 * window.innerWidth)
-              .attr('cy', 120)
-              .attr('r', Math.random() * 30)
-              .attr('fill', '#aaaaaa')
-              .transition()
-              .duration(1000)
-                .attr('transform', 'translate(' +  randomNumber +
-                  ',' + randomNumber2 + ')')
-                .attr('opacity', Math.random())
-                .on('end', callBack);
-          }
-        };
-        
-
-        var colorA = ['YlGnBu', 'YlOrRd', 'PuOr', 'Spectral', 'Purples', 'GnBu','PRGn', 'PuRd', 'Reds'];
-        
-        var pattern = Trianglify({
-          height: 250,
-          width: window.innerWidth,
-          x_colors:colorA[Math.floor(Math.random()*colorA.length)],
-          cell_size: 30,
-          seed: 1
-        })
-
-        pattern.canvas(document.getElementById('trianglify'));;
-        
-        var tween = new TWEEN.Tween({val: 0 })
-          .easing(TWEEN.Easing.Quadratic.InOut)
-          .to({ val: 7}, 3000)
-          .onUpdate(function() {
-            pattern.recalculate({width: window.innerWidth, variance: this.val + 0.5});
-            pattern.canvas(document.getElementById('trianglify'));
-          })
-          .repeat(Infinity)
-          .yoyo(true)
-          .start();
-        function animate() {
-          try {
-            requestAnimationFrame(animate)
-            TWEEN.update();
-          }
-          catch (e) {
-            console.log(e);
-          }
-        }
-        animate()
-    </script> 
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="../public/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../public/js/resize.js"></script>

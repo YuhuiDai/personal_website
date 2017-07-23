@@ -1,0 +1,13 @@
+unit test notes:
+
+Steps to test locally:
+
+1. If you have not download chromedriver, you need that to facilitate test-run.
+
+2. change the setUp(self) function. Specifically:
+        self.driver = webdriver.Chrome("/Users/YOUR_DIRECTORY_TO_CHROMEDRIVER")
+      
+3. Open your simple local host via python, and add the url to:
+		self.driver.get(URL)
+
+4. run the test :)
